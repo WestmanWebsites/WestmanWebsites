@@ -6,7 +6,7 @@
 <title>Westman Websites</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
 <!--
   Gotham and Helvetica are commercial fonts not available via free web font services.
   Body text uses the standard Helvetica Neue / Helvetica / Arial system stack (true Helvetica
@@ -29,8 +29,6 @@
     --step-num-bg: rgba(248, 244, 236, 0.14);
     --line: rgba(248, 244, 236, 0.16);
     /* Logo badge is intentionally inverted from the page theme, so it never blends in. */
-    --logo-bg: #F8F4EC;
-    --logo-text: #17324D;
   }
 
   html.light {
@@ -46,8 +44,6 @@
     --nav-bg: rgba(248, 244, 236, 0.86);
     --step-num-bg: rgba(23, 50, 77, 0.1);
     --line: rgba(30, 30, 30, 0.14);
-    --logo-bg: #17324D;
-    --logo-text: #F8F4EC;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -98,33 +94,13 @@
     max-width: 1080px;
     margin: 0 auto;
   }
-  .brand-lockup {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    background: var(--logo-bg);
-    padding: 7px 14px 7px 9px;
-    border-radius: 10px;
-    transition: background-color 0.3s ease;
-  }
-  .brand-icon { flex-shrink: 0; display: flex; }
-  .brand-text { display: flex; flex-direction: column; line-height: 1; }
-  .brand-line1 {
-    font-family: 'Roboto Slab', Georgia, serif;
+  .brand {
+    font-family: 'Montserrat', 'Gotham', Helvetica, Arial, sans-serif;
     font-weight: 700;
-    font-size: 1.0rem;
-    letter-spacing: 0.005em;
-    color: var(--logo-text);
+    font-size: 1.15rem;
+    color: var(--heading);
   }
-  .brand-line2 {
-    font-family: 'Roboto Slab', Georgia, serif;
-    font-weight: 400;
-    font-size: 0.54rem;
-    letter-spacing: 0.3em;
-    color: var(--logo-text);
-    margin-top: 3px;
-    margin-left: 1px;
-  }
+  .brand span { color: #B8962E; }
   .nav-cta {
     background: var(--primary);
     color: var(--on-primary);
@@ -451,10 +427,7 @@
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 860px) {
     .nav-inner { padding: 12px 16px; column-gap: 8px; }
-    .brand-lockup { padding: 6px 10px 6px 7px; gap: 7px; }
-    .brand-icon svg { width: 24px; height: 29px; }
-    .brand-line1 { font-size: 0.88rem; }
-    .brand-line2 { font-size: 0.5rem; letter-spacing: 0.28em; }
+    .brand { font-size: 1.0rem; }
     .nav-cta { padding: 9px 14px; font-size: 0.84rem; }
     .steps { grid-template-columns: 1fr; }
     .who-grid { grid-template-columns: 1fr; gap: 36px; }
@@ -483,26 +456,7 @@
 
 <nav class="nav">
   <div class="nav-inner">
-    <div class="brand-lockup">
-      <span class="brand-icon">
-        <svg width="27" height="37" viewBox="0 0 76 104">
-          <defs>
-            <linearGradient id="ribbonGrad" x1="1" y1="0" x2="0.1" y2="1">
-              <stop offset="0%" stop-color="#8CF3E4"/>
-              <stop offset="50%" stop-color="#1FA79C"/>
-              <stop offset="100%" stop-color="#0A5450"/>
-            </linearGradient>
-          </defs>
-          <path d="M 20 20 A 21 21 0 1 1 20 35" fill="none" stroke="url(#ribbonGrad)" stroke-width="14" stroke-linecap="round"/>
-          <path d="M 20.5 37 L 22.5 65" fill="none" stroke="url(#ribbonGrad)" stroke-width="14" stroke-linecap="round"/>
-          <path d="M 23 67 A 20 20 0 1 1 23 82" fill="none" stroke="url(#ribbonGrad)" stroke-width="14" stroke-linecap="round"/>
-        </svg>
-      </span>
-      <span class="brand-text">
-        <span class="brand-line1">WESTMAN</span>
-        <span class="brand-line2">WEB</span>
-      </span>
-    </div>
+    <div class="brand">Westman <span>Websites</span></div>
     <button type="button" class="nav-cta" data-scroll-to="quote">Get a quote</button>
     <div class="nav-actions">
       <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch to light mode" title="Switch to light mode">
@@ -527,7 +481,7 @@
 
 <header class="hero">
   <div class="wrap">
-    <div class="section-label">Website Development</div>
+    <div class="section-label">Build Better.</div>
     <h1 class="load-fade-up" id="heroHeadline">A Customer-Ready Website, Built Same Week.</h1>
     <p class="sub">No Monthly Fees. No upsells. <span class="limited">Summer Limited.</span></p>
     <div class="hero-ctas">
@@ -599,6 +553,7 @@
     <h2 class="section-title">Let's see what your site could look like.</h2>
     <div class="form-card">
       <form id="quoteForm">
+        <input type="hidden" name="access_key" value="35bd5cb1-5f91-454a-8eae-9834f5e0ece3">
         <div class="form-grid">
           <div class="field">
             <label for="yourName">Your Name</label>
@@ -626,8 +581,8 @@
           </div>
         </div>
         <div class="form-submit-row">
-          <button type="submit" class="submit-btn">Submit</button>
-          <span class="submit-note">Opens your email app with everything filled in.</span>
+          <button type="submit" class="submit-btn" id="submitBtn">Submit</button>
+          <span class="submit-note">We'll get back to you within a day or two.</span>
         </div>
         <div id="formStatus" class="form-status"></div>
       </form>
@@ -702,44 +657,56 @@
     });
   });
 
-  // Form -> mailto with everything filled in, plus a visible fallback
+  // Form -> Web3Forms (submits in the background, no email app / mailto involved)
   const form = document.getElementById('quoteForm');
   const formStatus = document.getElementById('formStatus');
+  const submitBtn = document.getElementById('submitBtn');
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const yourName = document.getElementById('yourName').value.trim();
-    const email = document.getElementById('email').value.trim();
     const business = document.getElementById('business').value.trim();
-    const existingSite = document.getElementById('existingSite').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const facebook = document.getElementById('facebook').value.trim();
+    const yourName = document.getElementById('yourName').value.trim();
 
-    const subject = `Quote Request — ${business}`;
+    const formData = new FormData(form);
+    formData.set('subject', `Quote Request — ${business}`);
+    formData.set('from_name', yourName);
+    // Optional fields read back as "N/A" when empty, same as before.
+    ['existingSite', 'phone', 'facebook'].forEach((key) => {
+      if (!formData.get(key)) formData.set(key, 'N/A');
+    });
 
-    const bodyLines = [
-      `Your Name: ${yourName}`,
-      `Email: ${email}`,
-      `Your Business: ${business}`,
-      `Existing Website: ${existingSite || 'N/A'}`,
-      `Phone #: ${phone || 'N/A'}`,
-      `Facebook Page: ${facebook || 'N/A'}`
-    ];
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    formStatus.classList.remove('show');
 
-    const body = bodyLines.join('\n');
-    const mailtoLink = `mailto:westmanwebsites@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    // Attempt to open the mail client.
-    window.location.href = mailtoLink;
-
-    // We can't detect whether a mail app actually opened, so always show a
-    // fallback the person can use if nothing happens on their device.
-    formStatus.innerHTML =
-      'Opening your email app now. If nothing happens, ' +
-      '<a href="' + mailtoLink + '">click here</a>, or email us directly at ' +
-      '<a href="mailto:westmanwebsites@outlook.com">westmanwebsites@outlook.com</a>.';
-    formStatus.classList.add('show');
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: formData
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          formStatus.innerHTML = 'Thanks — that\'s in. We\'ll get back to you within a day or two.';
+          form.reset();
+        } else {
+          formStatus.innerHTML =
+            'That didn\'t go through. Try again, or email us directly at ' +
+            '<a href="mailto:westmanwebsites@outlook.com">westmanwebsites@outlook.com</a>.';
+        }
+        formStatus.classList.add('show');
+      })
+      .catch(() => {
+        formStatus.innerHTML =
+          'That didn\'t go through — check your connection and try again, or email us directly at ' +
+          '<a href="mailto:westmanwebsites@outlook.com">westmanwebsites@outlook.com</a>.';
+        formStatus.classList.add('show');
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit';
+      });
   });
 </script>
 
